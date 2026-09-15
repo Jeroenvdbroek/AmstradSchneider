@@ -6,13 +6,13 @@ tags: [retrocomputing, amstrad, pc1512, gotek, dos]
 
 # Giving My Amstrad PC1512 a Second Life (and a Second Floppy Drive)
 
-I've had my Amstrad PC1512 SD for years, but lately its original 5.25" diskettes have been giving up on me — read errors, "abort/retry" prompts, the works. Forty-year-old magnetic media doesn't last forever. This post is the story of how a dying floppy problem turned into a full weekend (okay, several weekends) project: researching, ordering, cutting plastic, flashing firmware, and eventually getting a proper solid-state floppy emulator running as a second drive.
+It was my (families) first real computer. It arrived somewhere in 1986/87. After moving to a new place i had space for it at my own place. So i had to try it out ofcourse. I noticed its original 5.25" diskettes have been giving up on me : read errors, "abort/retry" prompts, the works. Forty-year-old magnetic media doesn't last forever. This post is the story of how a dying floppy problem turned into a little project: researching, ordering, cutting plastic, flashing firmware, and eventually getting a proper solid-state floppy emulator running as a second drive.
 
 ![The PC1512 as it normally sits, with its keyboard and monitor](/assets/images/pc1512-overview.jpg)
 
 ## The problem: no such thing as a USB 5.25" drive
 
-My first instinct was to look for a USB 5.25" floppy drive to read the failing diskettes on a modern PC. Turns out that's a dead end — those bridge boards were only ever made for 3.5" drives. 5.25" media predates USB by too long; nobody ever built the adapter. If you're chasing this same idea, stop — it doesn't exist.
+My first instinct was to look for a USB 5.25" floppy drive to read the failing diskettes on a modern PC and ofcourse write new diskettes (if i could find them). Turns out that's a dead end, those bridge boards were only ever made for 3.5" drives. 5.25" media predates USB by too long; nobody ever built the adapter. If you're chasing this same idea, stop: it doesn't exist.
 
 ## The real fix: Gotek + FlashFloppy
 
@@ -22,15 +22,16 @@ A few PC1512-specific things worth knowing if you're doing this yourself:
 
 - The PC1512 doesn't use the IBM "cable twist" trick to distinguish drive A from drive B. Instead, each drive is told which letter it is via a physical **jumper** — DS0 for A:, DS1 for B:.
 - The internal floppy cable uses an old-style **card-edge connector**, not the pin-header connector a Gotek ships with by default. You need a card-edge-to-34-pin adapter to bridge the two.
+- The Gotek's power input is a small floppy-style connector, while the PC1512's internal power wiring uses a big 4-pin Molex plug. A cheap Molex-to-mini-floppy-power adapter (a couple of euros from any PC hardware shop) bridges the two — worth ordering one alongside the Gotek itself so you're not caught short like I was
 - My machine turned out to already have a second, unused data connector and a spare power connector sitting on the internal cable — meaning I didn't need any extra cabling at all, just the adapter.
 
 ![The Gotek board wired up with the card-edge adapter, tapped into the spare internal connectors](/assets/images/gotek-cardedge-adapter.jpg)
 
 ## Sourcing parts and finding help
 
-I tracked down a Dutch retro-hardware seller (gotek-retro.eu) who explicitly confirmed the card-edge adapter works on a PC1512 — a nice bit of luck. I ordered a 5.25" Gotek unit with a built-in mounting bracket, OLED display, and rotary encoder, plus the card-edge adapter, and asked the seller to pre-set the drive-select jumper to DS1 before shipping, since I didn't want to mess with a jumper myself.
+I tracked down a Dutch retro-hardware seller (gotek-retro.eu) who explicitly confirmed the card-edge adapter works on a PC1512, a nice bit of luck. I ordered a 5.25" Gotek unit with a built-in mounting bracket, OLED display, and rotary encoder, plus the card-edge adapter, and asked the seller to pre-set the drive-select jumper to DS1 before shipping, since I didn't want to mess with a jumper myself.
 
-For the hands-on side of the install, I also looked into local hackerspaces — Maakplek in Groningen and the Oldenburger Computer-Museum near Emden both turned out to be solid options for anyone wanting in-person help with a project like this.
+For the hands-on side of the install, I also looked into local hackerspaces — Maakplek in Groningen and the Oldenburger Computer-Museum near Emden both turned out to be solid options for anyone wanting in-person help with a project like this. Ofcourse i wanted to it myself ;-)
 
 ## Cutting the bezel
 
@@ -44,7 +45,7 @@ The Gotek's onboard power connector is a small floppy-style header, completely d
 
 ## The software side: NVR, DEVICE, and DOS Plus
 
-Getting the hardware physically installed was only half the job — the machine also needed to be *told* a second drive existed. On the PC1512, that's done through the **Amstrad Non-Volatile RAM Utility**, accessible from a program on one of the original system disks (mine turned out to be renamed `RTC` on this disk revision, rather than the more commonly documented `NVR.EXE`). One menu option, "Number of Disk Drives," is all it takes.
+Getting the hardware physically installed was only half the job — the machine also needed to be *told* a second drive existed. On the PC1512, that's done through the **Amstrad Non-Volatile RAM Utility**, accessible from a program on one of the original system disks (`NVR.EXE`). One menu option, "Number of Disk Drives," is all it takes.
 
 Along the way I also:
 - Fixed a dying CMOS battery (this machine uses 4×AA cells tucked under the monitor, plus someone before me had already added an external holder wired in via a spare lead — a common mod, since the original battery setup can leak and corrode the board).
