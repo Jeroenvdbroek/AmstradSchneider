@@ -6,7 +6,7 @@ tags: [retrocomputing, amstrad, pc1512, gotek, dos]
 
 # Giving My Amstrad PC1512 a Second Life (and a Second Floppy Drive)
 
-It was my (families) first real computer. It arrived somewhere in 1986/87. After moving to a new place i had space for it at my own place. So i had to try it out ofcourse. I noticed its original 5.25" diskettes have been giving up on me : read errors, "abort/retry" prompts, the works. Forty-year-old magnetic media doesn't last forever. This post is the story of how a dying floppy problem turned into a little project: researching, ordering, cutting plastic, flashing firmware, and eventually getting a proper solid-state floppy emulator running as a second drive.
+It was my (families) first real computer. It arrived somewhere in 1986/87. I spend many hours behind this machine. It sparked my interest for IT. After years it is back at my home. After moving to a new place i had space for it. So i had to try it out ofcourse. I noticed its original 5.25" diskettes have been giving up on me : read errors, "abort/retry" prompts, the works. Forty-year-old magnetic media doesn't last forever. This post is the story of how a dying floppy problem turned into a little project: researching, ordering, cutting plastic, flashing firmware, and eventually getting a proper solid-state floppy emulator running as a second drive.
 
 ![The PC1512 as it normally sits, with its keyboard and monitor](/assets/images/pc1512-overview.jpg)
 
